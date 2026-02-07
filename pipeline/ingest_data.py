@@ -51,7 +51,7 @@ def run(pg_user, pg_pass, pg_host, pg_port, pg_db, target_table):
     url = f"{prefix}/yellow_tripdata_{year}-{month:02d}.csv.gz"
 
     engine = create_engine(
-        f"postgresql+psycopg://{pg_user}:{pg_password}@{pg_host}:{pg_port}/{pg_database}"
+        f"postgresql+psycopg2://{pg_user}:{pg_password}@{pg_host}:{pg_port}/{pg_database}"
     )
 
     df_iter = pd.read_csv(
