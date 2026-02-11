@@ -13,6 +13,15 @@ import pandas as pd
 from tqdm.auto import tqdm
 from sqlalchemy import create_engine
 from io import StringIO
+import os
+
+pg_host = os.getenv("PG_HOST")
+pg_port = os.getenv("PG_PORT")
+pg_user = os.getenv("PG_USER")
+pg_password = os.getenv("PG_PASSWORD")
+pg_db = os.getenv("PG_DB")
+
+print("Connecting to:", pg_host, pg_port, pg_db)
 
 
 dtype = {

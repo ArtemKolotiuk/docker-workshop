@@ -1,19 +1,25 @@
+# Basic project metadata (PEP 621 standard)
 [project]
-name = "pipeline"
-version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.13"
+name = "pipeline" # Package/project name
+version = "0.1.0" # Project version
+description = "NYC taxi data pipeline with PostgreSQL and Parquet"
+readme = "README.md" # Shown on PyPI / project page
+equires-python = ">=3.11" # Minimum Python version (3.11 = fast + stable wheels)
+# Runtime dependencies required for the pipeline to work
 dependencies = [
-    "pandas>=3.0.0",
-    "psycopg2-binary>=2.9.11",
-    "pyarrow>=23.0.0",
-    "sqlalchemy>=2.0.46",
-    "tqdm>=4.67.3",
+    "pandas>=2.2.0", # CSV processing, chunked reading
+    "sqlalchemy>=2.0.25", # DB engine / connection management
+    "psycopg2-binary>=2.9.9", # PostgreSQL driver used by SQLAlchemy
+    "pyarrow>=15.0.0", # Required for Parquet support in pandas
+    "tqdm>=4.66.0", # Progress bars for chunk loading
+    "click>=8.1.7", # CLI argument parsing for your scripts
+
 ]
 
+# Optional dependency groups (installed only in dev environment)
 [dependency-groups]
 dev = [
-    "jupyter>=1.1.1",
-    "pgcli>=4.4.0",
+    "jupyter>=1.0.0", # Notebooks for exploration/debugging
+    "pgcli>=4.3.0", # Convenient PostgreSQL CLI client
+
 ]
